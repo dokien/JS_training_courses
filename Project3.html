@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 3</title>
+
+    <style>
+		* {
+    text-align: center;
+  }
+
+  #submitdata{
+    margin: auto;
+    width: 100%;
+  }
+ 
+#analyzedata{
+    width: 100%;
+  }
+
+  #analyzedata td{
+    border: 1px black solid;
+    height: 20px;
+  }
+	</style>
+
+</head>
+<body>
+
+  <h1>Class Marksheet</h1>
+        <div>
+          <table id="submitdata">
+            <tr>
+              <td>Họ tên <input type="text" id="fullname"></td>
+            </tr>
+            <tr>
+              <td>Điểm toán <input type="text" id="math"></td>
+            </tr>
+            <tr>
+              <td>Điểm lý<input type="text" id="phy"></td>
+            </tr>
+            <tr>
+              <td >Điểm hóa<input type="text" id="chem"></td>
+            </tr>
+			</table>
+		</div>
+		<button type= "button" onclick="submit()">Nhập</button>
+    <p id="data"></p>
+    <script>
+    function submit() {
+      var fullname = document.getElementById("fullname").value;
+      var math = document.getElementById("math").value;
+      var phy = document.getElementById("phy").value;
+      var chem = document.getElementById("chem").value;
+      var text =fullname +" "+ math +" "+ phy +" "+ chem;
+      document.getElementById("data").innerHTML = text ;
+      }
+   </script>
+
+</body>
+</html>
