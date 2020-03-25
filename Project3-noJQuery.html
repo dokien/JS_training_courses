@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 3</title>
+
+    <style>
+		* {
+    text-align: center;
+  }
+
+  #submitdata{
+    margin: auto;
+    width: 100%;
+  }
+ 
+#analyzedata{
+    width: 100%;
+  }
+
+  #analyzedata td{
+    border: 1px black solid;
+    height: 20px;
+  }
+
+  #data td {
+    width: 15%;
+    border: black solid;
+  }
+
+  table {
+    width: 100%;
+  }
+
+	</style>
+
+</head>
+<body>
+  <h1>Class Marksheet</h1>
+    <div>
+      <table id="submitdata">
+        <tr>
+          <td>Họ tên <input type="text" id="fullname" required></td>
+          </tr>
+          <tr>
+            <td>Điểm toán <input type="text" id="math" required></td>
+          </tr>
+          <tr>
+            <td>Điểm lý<input type="text" id="phy" required></td>
+          </tr>
+          <tr>
+          <td >Điểm hóa<input type="text" id="chem" required></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <button type= "button" onclick="submit()">Nhập</button>
+  
+  <br><br>
+  
+  <table  id="data">
+    <tr>
+      <td>STT </td>
+      <td>Họ tên </td>
+      <td>Điểm toán </td>
+      <td>Điểm lý </td>
+      <td >Điểm hóa </td>
+      <td>Trung bình</td>
+    </tr>
+    <tr id="datasubmit"></tr>
+  </table>
+  
+  <br><br>
+  
+  <button type= "button" onclick="calculate()">Tính điểm trung bình</button>
+  <button type= "button" onclick="analyze()">Xác định học sinh giỏi</button>
+    
+    <script>
+    	
+    function submit() {
+      var a =  1;
+			var fullname = document.getElementById("fullname").value;
+      var math = document.getElementById("math").value;
+      var phy = document.getElementById("phy").value;
+      var chem = document.getElementById("chem").value;
+
+      var row =[a, fullname , math , phy , chem];
+      var text = "";
+      
+      for ( i = 0; i < row.length; i++) {
+        text +="<td>"+ row[i] +"</td>";
+      }
+      document.getElementById("datasubmit").insertAdjacentHTML('afterend' ,text + "<td id=mean>?</td>");
+    }
+    
+    function calculate(math ,phy, chem) {
+    var math = document.getElementById("math").value;
+    var phy = document.getElementById("phy").value;
+    var chem = document.getElementById("chem").value;
+    var mean = math/3 + phy/3 + chem/3;
+      document.getElementById("mean").innerHTML = mean;
+    }
+    
+    function analyze() {
+     var math = document.getElementById("math").value;
+     var phy = document.getElementById("phy").value;
+     var chem = document.getElementById("chem").value;
+     var mean = math/3 + phy/3 + chem/3;
+      
+      if ( mean > 8) {
+      document.getElementById("datasubmit").style.color = 'red';
+      }
+    }
+   </script>
+
+</body>
+</html>
