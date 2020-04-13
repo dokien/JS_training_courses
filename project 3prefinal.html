@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 3</title>
+
+    <style>
+   
+    * {
+    text-align: center;
+  }
+
+  #submitdata{
+    margin: auto;
+    width: 100%;
+  }
+ 
+#analyzedata{
+    width: 100%;
+  }
+
+  #analyzedata td{
+    border: 1px black solid;
+    height: 20px;
+  }
+
+  #data td {
+    width: 15%;
+    border: black solid;
+  }
+
+  table {
+    width: 100%;
+  }
+ 
+ red {
+   color: red;
+ }
+ 
+  </style>
+</head>
+<body>
+  <h1>Class Marksheet</h1>
+    <div>
+      <table id="submitdata">
+        <tr>
+          <td>Họ tên <input type="text" id="fullname" required></td>
+          </tr>
+          <tr>
+            <td>Điểm toán <input type="text" id="math" required></td>
+          </tr>
+          <tr>
+            <td>Điểm lý<input type="text" id="phy" required></td>
+          </tr>
+          <tr>
+          <td >Điểm hóa<input type="text" id="chem" required></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <button type= "button" id="submit">Nhập</button>
+  
+  <br><br>
+  
+  <table id ="data">
+    <tr>
+      <td>STT </td>
+      <td>Họ tên </td>
+      <td>Điểm toán </td>
+      <td>Điểm lý </td>
+      <td >Điểm hóa </td>
+      <td>Trung bình</td>
+    </tr>
+  </table>
+  
+  <br><br>
+  
+  <button type="button" id="calculate">Tính điểm trung bình</button>
+  <button type="button" id="analyze">Xác định học sinh giỏi</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    var a = 0 ; 
+    
+    $("#submit").click(function(){
+      var fullname = $("#fullname").val();
+      var math = $("#math").val();
+      var phy = $("#phy").val();
+      var chem = $("#chem").val();
+      a += 1;
+        
+      $("#data").append(
+          "<tr class='data'>" 
+          +  "<td>"                 + a           + "</td>"
+          +  "<td>"                 + fullname    + "</td>"
+          +  "<td class='score'>"    + math        + "</td>"
+          +  "<td class='score'>"     + phy         + "</td>"
+          +  "<td class='score'>"    + chem        + "</td>"
+          +  "<td class='mean'>"   + "?"         + "</td>"
+          +    "</tr>")
+    });
+
+            
+             $("#calculate']").on("click", function(){
+            
+            $("tr").each(function(){
+                var total = 0;
+                $(this).children("td[class='score']").each(function(){
+                    total += parseFloat($(this).text());
+                });
+                var mean = (Math.round((total/3)*10))/10;        //chia trung bình và làm tròn
+                $(this).children("td[class='mean']").text(mean);
+                
+                                
+            });
+            
+        });
+        
+        $("analyze']").on("click", function(){
+            
+            $("tr").each(function(){
+                
+                if (parseFloat($(this).children("td[class='mean']").text()) >= 8) {
+                    
+                    $(this).addClass("red");
+                    
+                }
+                
+            });
+            
+        });
+        });
+  
+   </script>
+</body>
+</html>
