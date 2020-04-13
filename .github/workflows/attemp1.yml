@@ -21,28 +21,28 @@
     border: 1px black solid;
     height: 20px;
   }
-	</style>
+</style>
 
 </head>
 <body>
 
   <h1>Class Marksheet</h1>
         <div>
-          <table id="submitdata">
-            <tr>
-              <td>Họ tên <input type="text" id="fullname"></td>
-            </tr>
-            <tr>
-              <td>Điểm toán <input type="text" id="math"></td>
-            </tr>
-            <tr>
-              <td>Điểm lý<input type="text" id="phy"></td>
-            </tr>
-            <tr>
-              <td >Điểm hóa<input type="text" id="chem"></td>
-            </tr>
-			</table>
-		</div>
+        	<table id="submitdata">
+		    <tr>
+		      <td>Họ tên <input type="text" id="fullname"></td>
+		    </tr>
+		    <tr>
+		      <td>Điểm toán <input type="text" id="math"></td>
+		    </tr>
+		    <tr>
+		      <td>Điểm lý<input type="text" id="phy"></td>
+		    </tr>
+		    <tr>
+		      <td >Điểm hóa<input type="text" id="chem"></td>
+		    </tr>
+		</table>
+	</div>
 		<button type= "button" onclick="submit()">Nhập</button>
     <p id="data"></p>
     <script>
